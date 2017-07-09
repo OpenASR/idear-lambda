@@ -13,7 +13,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
-        classpath "jp.classmethod.aws:gradle-aws-plugin:0.22"
+        classpath "jp.classmethod.aws:gradle-aws-plugin:0.30"
     }
 }
 
@@ -43,7 +43,7 @@ dependencies {
 // ======== deploy ========
 aws {
     profileName "default"
-    region "ap-northeast-1"
+    region "us-east-1"
 }
 
 task migrateFunction(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
