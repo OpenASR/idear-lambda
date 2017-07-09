@@ -1,0 +1,68 @@
+import com.amazonaws.services.lambda.model.*;
+import jp.classmethod.aws.gradle.lambda.AWSLambdaDeleteFunctionTask;
+import jp.classmethod.aws.gradle.lambda.AWSLambdaInvokeTask;
+import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask;
+
+buildscript {
+    ext.kotlin_version = '1.0.5-2'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
+        classpath "jp.classmethod.aws:gradle-aws-plugin:0.22"
+    }
+}
+
+group 'com.jetbrains.idear'
+version '1.0-SNAPSHOT'
+
+ext.artifactId = 'idear-lambda'
+ext.functionName = 'IdearLexFulfillment'
+
+
+apply plugin: 'kotlin'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'jp.classmethod.aws.lambda'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
+    compile 'com.amazonaws:aws-lambda-java-events:1.1.0'
+    compile 'com.amazonaws:aws-java-sdk-lex:1.11.160'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+
+// ======== deploy ========
+aws {
+    profileName "default"
+    region "ap-northeast-1"
+}
+
+task migrateFunction(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
+    functionName = project.functionName
+    role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
+    runtime = Runtime.Java8
+    zipFile = jar.archivePath
+    handler = "com.jetbrains.idear.lambda.LexFulfillment"
+}
+
+task invokeFunction(type: AWSLambdaInvokeTask) {
+    functionName = project.functionName
+    invocationType = InvocationType.RequestResponse
+    payload = file("src/test/resources/postText-add_new_class.json")
+    doLast {
+        println "Lambda function result: " + new String(invokeResult.payload.array(), "UTF-8")
+    }
+}
+
+task deleteFunction(type: AWSLambdaDeleteFunctionTask) {
+    functionName = project.functionName
+}
