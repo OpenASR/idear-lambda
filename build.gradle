@@ -1,3 +1,4 @@
+import com.amazonaws.*;
 import com.amazonaws.services.lambda.model.*;
 import jp.classmethod.aws.gradle.lambda.AWSLambdaDeleteFunctionTask;
 import jp.classmethod.aws.gradle.lambda.AWSLambdaInvokeTask;
@@ -13,7 +14,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
-        classpath "jp.classmethod.aws:gradle-aws-plugin:0.30"
+        classpath "jp.classmethod.aws:gradle-aws-plugin:0.22"
     }
 }
 
@@ -39,6 +40,12 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
+// ======== bundle ========
+jar {
+    into('lib') {
+        from configurations.compile
+    }
+}
 
 // ======== deploy ========
 aws {
