@@ -1,5 +1,16 @@
 {
-  "inputText": "add new class",
+  "currentIntent": {
+    "name": "ApplyLiveTemplate"
+  },
+  "bot": {
+    "name": "idear",
+    "alias":  "DEV"
+  },
+  "userId": "tester",
+  "inputTranscript": "add new class",
+  "invocationSource": "FulfillmentCodeHook",
+  "outputDialogMode": "Text",
+  "messageVersion": "1.0",
   "sessionAttributes": {
     "module": "idear-lambda"
   }
