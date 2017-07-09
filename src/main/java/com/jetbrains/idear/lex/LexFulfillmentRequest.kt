@@ -2,11 +2,11 @@ package com.jetbrains.idear.lex
 
 /** @sse http://docs.aws.amazon.com/lex/latest/dg/lambda-input-response-format.html#using-lambda-input-event-format */
 data class LexFulfillmentRequest(
-    val currentIntent: Intent? = null,
-    val bot: Bot? = null,
-    val userId: String? = null,
-    val inputTranscript: String? = null,
-    val invocationSource: String? = null,
-    val outputDialogMode: String? = null,
-    val messageVersion: String? = null,
-    val sessionAttributes: Map<String, String>? = null)
+    var currentIntent: Intent? = null,
+    var bot: Bot? = null,
+    var userId: String? = null,
+    var inputTranscript: String? = null,
+    var invocationSource: String? = null,
+    var outputDialogMode: String? = null,
+    var messageVersion: String? = null,
+    var sessionAttributes: Map<String, String>? = null)
