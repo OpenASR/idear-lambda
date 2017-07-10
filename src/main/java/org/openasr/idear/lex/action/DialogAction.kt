@@ -1,7 +1,7 @@
-package com.jetbrains.idear.lex.action
+package org.openasr.idear.lex.action
 
-import com.jetbrains.idear.lex.FulfillmentState
-import com.jetbrains.idear.lex.Message
+import org.openasr.idear.lex.FulfillmentState
+import org.openasr.idear.lex.Message
 
 
 fun fulfilled(message: String): Close = close(FulfillmentState.Fulfilled, message)

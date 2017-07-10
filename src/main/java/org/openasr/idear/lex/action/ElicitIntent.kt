@@ -1,6 +1,6 @@
-package com.jetbrains.idear.lex.action
+package org.openasr.idear.lex.action
 
-import com.jetbrains.idear.lex.Message
+import org.openasr.idear.lex.Message
 
 
 class ElicitIntent(message: Message) : DialogActionWithResponse("ElicitIntent", message)

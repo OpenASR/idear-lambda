@@ -1,7 +1,7 @@
-package com.jetbrains.idear.lex.action
+package org.openasr.idear.lex.action
 
-import com.jetbrains.idear.lex.Message
-import com.jetbrains.idear.lex.ResponseCard
+import org.openasr.idear.lex.Message
+import org.openasr.idear.lex.ResponseCard
 
 abstract class DialogActionWithResponse(type: String, val message: Message) : DialogAction(type) {
     var responseCard: ResponseCard? = null

@@ -1,4 +1,4 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
 data class Intent(var name: String? = null,
              var slots: Map<String, String>? = null,

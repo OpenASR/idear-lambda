@@ -1,11 +1,11 @@
-package com.jetbrains.idear.lambda
+package org.openasr.idear.lambda
 
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
-import com.jetbrains.idear.lex.*
-import com.jetbrains.idear.lex.action.Close
-import com.jetbrains.idear.lex.action.close
-import com.jetbrains.idear.lex.action.fulfilled
+import org.openasr.idear.lex.*
+import org.openasr.idear.lex.action.Close
+import org.openasr.idear.lex.action.close
+import org.openasr.idear.lex.action.fulfilled
 
 
 class LexFulfillment : RequestHandler<LexFulfillmentRequest, LexFulfillmentResponse> {

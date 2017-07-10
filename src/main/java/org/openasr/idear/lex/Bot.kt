@@ -1,4 +1,4 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
 data class Bot(var name: String? = null,
           var alias: String? = null,

@@ -1,4 +1,4 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
 /**
  * @param genericAttachments - 0 to 10 items

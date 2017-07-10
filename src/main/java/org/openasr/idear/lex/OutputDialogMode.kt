@@ -1,4 +1,4 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
 enum class OutputDialogMode {
     Text,

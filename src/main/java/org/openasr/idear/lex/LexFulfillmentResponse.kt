@@ -1,6 +1,6 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
-import com.jetbrains.idear.lex.action.DialogAction
+import org.openasr.idear.lex.action.DialogAction
 
 class LexFulfillmentResponse(val dialogAction: DialogAction) {
     var sessionAttributes: Map<String, String>? = null

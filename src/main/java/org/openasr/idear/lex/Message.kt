@@ -1,4 +1,4 @@
-package com.jetbrains.idear.lex
+package org.openasr.idear.lex
 
 class Message(val content: String) {
     lateinit var contentType: String
