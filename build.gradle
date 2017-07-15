@@ -48,7 +48,7 @@ jar {
 
 // ======== deploy ========
 aws {
-    profileName "default"
+    profileName "idear"
     region "us-east-1"
 }
 

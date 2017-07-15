@@ -6,4 +6,4 @@ AWS Lex fulfillment service for [idear](https://github.com/OpenASR/idear)
     
 ## Deploy
     
-    ./gradlew migrateFunction
+    ./gradlew migrateFunction 
