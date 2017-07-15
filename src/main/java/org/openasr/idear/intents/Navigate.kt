@@ -8,6 +8,6 @@ import org.openasr.idear.lex.action.fulfilled
  */
 class Navigate : Intent {
     override fun handleRequest(): LexFulfillmentResponse {
-        return fulfilled("", mapOf("invokeAction" to "GotoDeclaration"))
+        return fulfilled("ok", mapOf("invokeAction" to "GotoDeclaration"))
     }
 }

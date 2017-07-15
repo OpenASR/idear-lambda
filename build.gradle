@@ -18,7 +18,7 @@ buildscript {
     }
 }
 
-group 'com.jetbrains.idear'
+group 'org.openasr.idear'
 version '1.0-SNAPSHOT'
 
 ext.artifactId = 'idear-lambda'
@@ -54,10 +54,10 @@ aws {
 
 task migrateFunction(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
     functionName = project.functionName
-    role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
+    role = "arn:aws:iam::${aws.accountId}:role/service-role/lambda_basic_execution"
     runtime = Runtime.Java8
     zipFile = jar.archivePath
-    handler = "com.jetbrains.idear.lambda.LexFulfillment"
+    handler = "org.openasr.idear.lambda.LexFulfillment"
 }
 
 task invokeFunction(type: AWSLambdaInvokeTask) {
