@@ -2,9 +2,7 @@ package org.openasr.idear.lambda
 
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
-import org.openasr.idear.intents.HiIdea
-import org.openasr.idear.intents.Navigate
-import org.openasr.idear.intents.NoMatch
+import org.openasr.idear.intents.*
 import org.openasr.idear.lex.*
 
 
@@ -13,12 +11,17 @@ class LexFulfillment : RequestHandler<LexFulfillmentRequest, LexFulfillmentRespo
     override fun handleRequest(request: LexFulfillmentRequest, context: Context): LexFulfillmentResponse {
         context.logger.log(request.toString())
 
-        val intent = when (request.currentIntent?.name) {
-            "HiIdea" -> HiIdea(request.sessionAttributes)
-            "Navigate" -> Navigate()
-            else -> NoMatch()
+        val intentName: String = request.currentIntent?.name ?: return noMatch()
+
+        val response: LexFulfillmentResponse = when (intentName) {
+            "HiIdea" -> hiIdea(intentName, request.sessionAttributes)
+            "Navigate" -> navigate()
+            "OpenView" -> openView(intentName, request.currentIntent?.slots)
+            "Run" -> run()
+            else -> noMatch()
         }
 
-        return intent.handleRequest()
+        context.logger.log(response.toString())
+        return response
     }
 }
