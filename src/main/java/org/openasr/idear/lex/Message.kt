@@ -10,4 +10,8 @@ class Message(val content: String) {
             contentType = "PlainText"
         }
     }
+
+    override fun toString(): String {
+        return "Message(content=$content)"
+    }
 }
