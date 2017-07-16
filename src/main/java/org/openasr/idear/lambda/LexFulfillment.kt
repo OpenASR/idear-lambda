@@ -5,7 +5,6 @@ import com.amazonaws.services.lambda.runtime.RequestHandler
 import org.openasr.idear.intents.*
 import org.openasr.idear.lex.*
 
-
 class LexFulfillment : RequestHandler<LexFulfillmentRequest, LexFulfillmentResponse> {
 
     override fun handleRequest(request: LexFulfillmentRequest, context: Context): LexFulfillmentResponse {

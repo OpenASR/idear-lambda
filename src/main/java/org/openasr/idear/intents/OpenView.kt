@@ -12,10 +12,11 @@ fun openView(intentName: String, slots: Map<String, String>?): LexFulfillmentRes
         "terminal" -> _openView(view, "ActivateTerminalToolWindow")
         else -> elicitSlot(intentName,
                 "View",
-                "I know how to open \"settings\", \"recent files\" and the \"terminal\"")
+                "I know how to open \"settings\", \"recent files\" and the \"terminal\"",
+                promptForInfo)
     }
 }
 
 private fun _openView(view: String, action: String): LexFulfillmentResponse {
-    return fulfilled("opening" + view, mapOf("invokeAction" to action))
+    return fulfilled("opening" + view, mapOf("invokeAction" to action, Verbosity to DEBUG))
 }

@@ -7,5 +7,6 @@ import org.openasr.idear.lex.action.fulfilled
  * https://www.jetbrains.com/help/idea/navigating-to-declaration-or-type-declaration-of-a-symbol.html
  */
 fun navigate(): LexFulfillmentResponse {
-    return fulfilled("ok", mapOf("invokeAction" to "GotoDeclaration"))
+    return fulfilled("opening declaration",
+            mapOf("invokeAction" to "GotoDeclaration", Verbosity to DEBUG))
 }
